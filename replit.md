@@ -1,107 +1,105 @@
-# Krishna Harsh Travels - Travel Agency Landing Page
+# Krishna Harsh Travels - Premium Landing Page
 
-## Overview
+## Project Overview
+A fully-responsive, luxury travel agency landing page built with React, TypeScript, Tailwind CSS, and Framer Motion. Features a modern design inspired by Tourlane with a custom blue and brown luxury color scheme.
 
-Krishna Harsh Travels is a premium luxury travel agency landing page application. The platform provides a modern, aesthetically-driven user experience for travelers to explore destinations, view travel packages, and book free consultations with expert travel designers. The application emphasizes emotional storytelling through high-quality imagery, smooth animations, and a clean, minimalist design inspired by tourlane.com with a custom blue and brown luxury theme.
+## Technology Stack
+- **Frontend**: React, TypeScript, Tailwind CSS, Framer Motion
+- **Backend**: Express.js, TypeScript
+- **State Management**: React Query (TanStack Query)
+- **Forms**: React Hook Form with Zod validation
+- **UI Components**: shadcn/ui
+- **Routing**: Wouter
 
-## User Preferences
+## Completed Features
 
-Preferred communication style: Simple, everyday language.
+### MVP Features (Fully Implemented)
+1. **Hero Section** - Full-screen background with headline, subtext, and dual CTAs
+2. **How It Works** - 3-step animated process section
+3. **Popular Destinations** - 9-destination grid with ratings and hover effects
+4. **Travel Packages** - Carousel slider with pricing and highlights
+5. **Why Choose Us** - 4 key features with icons
+6. **Testimonials** - Auto-carousel with user reviews and ratings
+7. **Consultation Form** - Multi-field form with validation and API integration
+8. **Footer** - Comprehensive navigation and social links
+9. **Responsive Design** - Mobile-first, fully responsive across all devices
+10. **Premium Styling** - Blue (#0A3D62) and brown (#C49A6C) luxury theme
+11. **Animations** - Smooth Framer Motion transitions throughout
+12. **SEO Optimized** - Proper meta tags and semantic HTML
 
-## System Architecture
+## API Endpoints
+- `POST /api/consultations` - Submit consultation request
+- `GET /api/consultations` - Retrieve all consultation requests
 
-### Frontend Architecture
+## Form Validation
+- Name: 2+ characters
+- Email: Valid email format
+- Phone: 10+ digits
+- Destination: Required selection
+- Travel Dates: Required field
 
-**Framework & Build System**
-- **React 18** with TypeScript for type-safe component development
-- **Vite** as the build tool and development server, providing fast HMR (Hot Module Replacement)
-- **Wouter** for lightweight client-side routing (single-page application)
-- **React Query (@tanstack/react-query)** for server state management and data fetching
+## Project Structure
+```
+client/
+├── src/
+│   ├── components/
+│   │   ├── hero-section.tsx
+│   │   ├── how-it-works.tsx
+│   │   ├── popular-destinations.tsx
+│   │   ├── travel-packages.tsx
+│   │   ├── why-choose-us.tsx
+│   │   ├── testimonials.tsx
+│   │   ├── consultation-form.tsx
+│   │   ├── footer.tsx
+│   │   └── ui/ (shadcn components)
+│   ├── pages/
+│   │   └── home.tsx
+│   ├── App.tsx
+│   └── index.css
+server/
+├── routes.ts (API endpoints)
+├── storage.ts (In-memory storage)
+└── app.ts
+shared/
+└── schema.ts (Zod schemas & TypeScript types)
+```
 
-**UI Component System**
-- **shadcn/ui** component library with Radix UI primitives for accessible, customizable components
-- **Tailwind CSS** for utility-first styling with custom design tokens
-- **Framer Motion** for smooth, subtle animations throughout the user experience
-- **Class Variance Authority (CVA)** for managing component variants
+## How to Use
 
-**Design System**
-- Custom color palette: Royal Blue (#0A3D62), Sand Brown (#C49A6C), White, Light Beige (#F7F2EB)
-- Typography: Inter and DM Sans font families from Google Fonts
-- Mobile-first responsive design with standard Tailwind spacing units
-- Consistent use of shadows, rounded corners, and large whitespace for premium aesthetic
+### Run Locally
+```bash
+npm run dev
+```
+The app will be available at http://localhost:5000
 
-**Page Structure**
-The application uses a single-page layout with modular sections:
-- Hero Section (full-screen with image background)
-- How It Works (3-step process)
-- Popular Destinations (responsive grid)
-- Travel Packages (carousel display)
-- Why Choose Us (feature highlights)
-- Testimonials (carousel with user reviews)
-- Consultation Form (lead capture)
-- Footer (navigation and social links)
+### Download the Project
+1. Click the three-dot menu (⋯) in top right
+2. Select "Download as zip"
+3. Extract and use locally
 
-### Backend Architecture
+### Deploy/Publish
+1. Click the "Publish" button in Replit
+2. Your site gets a free `.replit.app` domain
+3. Share the live link anywhere
 
-**Server Framework**
-- **Express.js** with TypeScript running on Node.js
-- Separate development (`index-dev.ts`) and production (`index-prod.ts`) entry points
-- Development mode integrates Vite middleware for seamless frontend/backend development
-- Production mode serves static files from the build directory
+## Color Scheme
+- **Primary (Royal Blue)**: #0A3D62 - Main buttons, headings
+- **Secondary (Sand Brown)**: #C49A6C - Accents, footer, highlight elements
+- **Background**: #FFFFFF (light), #1A1A1A (dark)
+- **Text**: Professional typography with Inter/DM Sans fonts
 
-**API Design**
-- RESTful API endpoints under `/api` prefix
-- POST `/api/consultations` - Create new consultation requests
-- GET `/api/consultations` - Retrieve all consultations
-- JSON request/response format with proper HTTP status codes
-- Validation using Zod schemas with error formatting via `zod-validation-error`
+## Future Enhancements
+- Integrate real travel API for live destination data
+- Email service integration for consultation notifications
+- User authentication and saved favorites
+- Advanced search and filtering
+- Admin dashboard for content management
+- Database persistence (PostgreSQL)
 
-**State Management**
-- In-memory storage implementation (`MemStorage`) for development/prototyping
-- Interface-based storage layer (`IStorage`) allows easy swapping to database implementations
-- UUID generation for entity IDs using Node's built-in `crypto` module
-
-### Data Storage Solutions
-
-**Database Configuration**
-- **Drizzle ORM** configured for PostgreSQL dialect
-- **Neon Database** serverless driver (`@neondatabase/serverless`)
-- Schema-first approach with type-safe database operations
-- Database schema defined in `shared/schema.ts` for shared types between client and server
-- Migration directory configured at `./migrations`
-
-**Schema Design**
-Two primary tables:
-1. **users**: Basic user authentication (id, username, password)
-2. **consultations**: Customer inquiry forms (id, name, email, phone, destination, travelDates, createdAt)
-
-**Validation Strategy**
-- Zod schemas generated from Drizzle table definitions using `drizzle-zod`
-- Client-side and server-side validation using the same schema definitions
-- Custom validation rules (email format, phone number length, required fields)
-
-### External Dependencies
-
-**UI & Component Libraries**
-- Radix UI primitives (accordion, dialog, dropdown, popover, select, toast, etc.)
-- Embla Carousel for touch-friendly image carousels
-- Lucide React for consistent icon system
-- React Hook Form with Zod resolver for form management
-
-**Development Tools**
-- Replit-specific plugins for development environment integration
-- ESBuild for production server bundling
-- PostCSS with Autoprefixer for CSS processing
-
-**Session & Security**
-- `connect-pg-simple` for PostgreSQL-backed session storage (configured but not yet implemented in routes)
-
-**Utility Libraries**
-- `date-fns` for date manipulation
-- `clsx` and `tailwind-merge` for conditional className management
-- `nanoid` for unique ID generation
-
-**Styling & Animation**
-- Tailwind CSS with custom configuration for design system
-- Framer Motion for declarative animations
-- Custom CSS variables for theming (light mode defined, dark mode prepared)
+## Notes
+- All images are high-quality AI-generated travel photography
+- Fully accessible with proper ARIA labels and semantic HTML
+- Touch-friendly buttons and interactive elements
+- Smooth scroll behavior and animations
+- Form validation with user-friendly error messages
+- Toast notifications for user feedback
