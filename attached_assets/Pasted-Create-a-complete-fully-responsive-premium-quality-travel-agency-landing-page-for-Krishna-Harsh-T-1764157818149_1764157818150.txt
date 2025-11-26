@@ -1,0 +1,163 @@
+Create a complete, fully responsive, premium-quality travel agency landing page for “Krishna Harsh Travels” using Next.js 14 (App Router), Tailwind CSS, and shadcn/ui.
+
+The design style should be inspired by tourlane.com, but with a custom blue + brown luxury theme.
+
+🎨 Branding & Style
+
+Color Palette:
+
+Royal Blue (#0A3D62)
+
+Sand Brown (#C49A6C)
+
+White (#FFFFFF)
+
+Light Beige (#F7F2EB)
+
+Aesthetic, clean, premium travel brand
+
+Soft shadows, rounded corners, large whitespace
+
+Smooth animations using Framer Motion
+
+High-quality travel photography
+
+Minimalistic, modern typography (Inter / DM Sans)
+
+🎯 Sections to Include (Modular Components)
+
+Build each section as a separate modular component:
+
+1. Hero Section
+
+Full screen image or video background
+
+Headline: “Plan Your Dream Journey with Krishna Harsh Travels”
+
+Subtext: “Personalized trips crafted by expert travel designers.”
+
+CTA Buttons: “Book Free Consultation” + “Explore Destinations”
+
+Floating search bar (optional)
+
+2. How It Works (3-Step Process)
+
+Step 1: Share Your Travel Preferences
+
+Step 2: Get a Free Custom Itinerary
+
+Step 3: Book Your Perfect Trip
+
+Use icons with minimal animation
+
+3. Popular Destinations Grid
+
+6–9 cards with image, rating, short description
+
+Hover effects
+
+Blue + brown accents
+
+4. Recommended Travel Packages
+
+Card slider layout
+
+Pricing, duration, highlights
+
+“Customize this trip” button
+
+5. Why Choose Us Section
+
+Icons + text
+
+Features like:
+
+Expert Travel Designers
+
+100% Tailored Trips
+
+Best Price Guarantee
+
+24/7 Support
+
+6. Testimonials Slider
+
+User photos
+
+Star ratings
+
+Animated fade-in
+
+7. Book a Free Consultation Form
+
+Name, Email, Phone, Destination, Travel Dates
+
+Blue/brown styled form
+
+Submit → API route (Next.js)
+
+8. Footer
+
+Company info
+
+Quick links
+
+Social icons
+
+Brown + blue accents
+
+💻 Technical Requirements
+
+Next.js (App Router)
+
+Tailwind CSS
+
+shadcn/ui for components
+
+Framer Motion – animations
+
+Mobile-first
+
+SEO-optimized metadata
+
+Reusable section components in /components
+
+Clean folder structure
+
+Deliverables:
+
+All JSX/TSX code for pages & components
+
+Tailwind styling
+
+Responsive design
+
+Dummy images + placeholder data
+
+Light & clean animation behavior
+
+📌 Tone & Copywriting Style
+
+Use a premium, trustworthy tone similar to Tourlane:
+
+Emotional travel storytelling
+
+Clear, concise CTAs
+
+Benefit-driven copy
+
+Professional yet warm
+
+⭐ Final Output
+
+At the end, output:
+
+Full Next.js code
+
+Tailwind classes included
+
+Individual reusable components
+
+All content (text + dummy image URLs)
+
+Deployment-ready structure
