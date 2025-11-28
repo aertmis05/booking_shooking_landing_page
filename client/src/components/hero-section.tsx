@@ -27,7 +27,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-6 text-5xl font-bold text-white md:text-6xl lg:text-7xl"
           >
-            Plan Your Dream Journey with Krishna Harsh Travels
+            Plan Your Dream Journey with Booking Shooking
           </motion.h1>
           
           <motion.p
@@ -67,37 +67,6 @@ export function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="absolute bottom-20 left-1/2 w-full max-w-4xl -translate-x-1/2 px-4"
-        >
-          <div className="rounded-md border border-white/20 bg-white/95 p-4 shadow-xl backdrop-blur-md md:p-6">
-            <div className="grid gap-4 md:grid-cols-3 md:gap-2">
-              <div className="flex items-center gap-2 rounded-md border border-border bg-background">
-                <MapPin className="ml-4 h-5 w-5 text-muted-foreground" data-testid="icon-destination" />
-                <Input
-                  placeholder="Where to?"
-                  className="border-0 focus-visible:ring-0"
-                  data-testid="input-hero-destination"
-                />
-              </div>
-              <div className="flex items-center gap-2 rounded-md border border-border bg-background">
-                <Calendar className="ml-4 h-5 w-5 text-muted-foreground" data-testid="icon-calendar" />
-                <Input
-                  placeholder="When?"
-                  className="border-0 focus-visible:ring-0"
-                  data-testid="input-hero-date"
-                />
-              </div>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90" data-testid="button-hero-search">
-                <Search className="mr-2 h-5 w-5" />
-                Search Trips
-              </Button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

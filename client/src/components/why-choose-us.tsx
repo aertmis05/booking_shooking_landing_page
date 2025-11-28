@@ -4,22 +4,22 @@ import { Users, Sparkles, Shield, Headphones } from "lucide-react";
 const features = [
   {
     icon: Users,
-    title: "Expert Travel Designers",
+    title: "VISA Application",
     description: "Our certified travel experts have over 15 years of experience creating unforgettable journeys worldwide.",
   },
   {
     icon: Sparkles,
-    title: "100% Tailored Trips",
+    title: "Airport Transit VISA",
     description: "Every itinerary is uniquely crafted to match your preferences, budget, and travel style perfectly.",
   },
   {
     icon: Shield,
-    title: "Best Price Guarantee",
+    title: "Tour packages",
     description: "We ensure competitive pricing and transparent costs with no hidden fees or surprise charges.",
   },
   {
     icon: Headphones,
-    title: "24/7 Support",
+    title: "Travel Insurance",
     description: "Round-the-clock assistance before, during, and after your trip for complete peace of mind.",
   },
 ];
@@ -36,7 +36,7 @@ export function WhyChooseUs() {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
-            Why Choose Krishna Harsh Travels
+            Services We provide 
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Your trusted partner in creating extraordinary travel experiences

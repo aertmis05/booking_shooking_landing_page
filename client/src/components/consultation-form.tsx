@@ -58,7 +58,7 @@ export function ConsultationForm() {
       queryClient.invalidateQueries({ queryKey: ["/api/consultations"] });
       toast({
         title: "Consultation Request Received!",
-        description: "Our travel expert will contact you within 24 hours to discuss your dream journey.",
+        description: "Our travel expert will contact you within 24 hours to discuss your dream journey with Booking Shooking.",
         duration: 5000,
       });
       form.reset();

@@ -15,7 +15,7 @@ const testimonials = [
     name: "Sarah Johnson",
     location: "New York, USA",
     rating: 5,
-    text: "Krishna Harsh Travels made our honeymoon in Bali absolutely magical. Every detail was perfect, from the luxurious accommodations to the personalized excursions. We couldn't have asked for a better experience!",
+    text: "Booking Shooking made our honeymoon in Bali absolutely magical. Every detail was perfect, from the luxurious accommodations to the personalized excursions. We couldn't have asked for a better experience!",
     initials: "SJ",
   },
   {
@@ -36,7 +36,7 @@ const testimonials = [
     name: "David Martinez",
     location: "Barcelona, Spain",
     rating: 5,
-    text: "I've traveled with many agencies, but Krishna Harsh Travels stands out. Their expertise, competitive pricing, and genuine care for creating the perfect trip are unmatched. Five stars all the way!",
+    text: "I've traveled with many agencies, but Booking Shooking stands out. Their expertise, competitive pricing, and genuine care for creating the perfect trip are unmatched. Five stars all the way!",
     initials: "DM",
   },
 ];

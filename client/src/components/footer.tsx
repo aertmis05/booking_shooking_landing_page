@@ -28,9 +28,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold" data-testid="text-footer-brand">Krishna Harsh Travels</h3>
+            <h3 className="text-2xl font-bold" data-testid="text-footer-brand">Booking Shooking</h3>
             <p className="text-sm text-accent-foreground/80" data-testid="text-footer-tagline">
-              Your trusted partner in creating extraordinary travel experiences around the world since 2010.
+              Your trusted partner in creating extraordinary travel experiences around the world.
             </p>
             <div className="flex gap-4">
               <a
@@ -97,11 +97,11 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0" data-testid="icon-phone" />
-                <span className="text-accent-foreground/80" data-testid="text-phone">+91 98765 43210</span>
+                <span className="text-accent-foreground/80" data-testid="text-phone">+91 9558243706</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 flex-shrink-0" data-testid="icon-email" />
-                <span className="text-accent-foreground/80" data-testid="text-email">hello@krishnaharshtravels.com</span>
+                <span className="text-accent-foreground/80" data-testid="text-email">mailbookingshooking@gmail.com</span>
               </li>
             </ul>
           </div>
@@ -110,7 +110,7 @@ export function Footer() {
         <Separator className="my-8 bg-accent-foreground/20" />
 
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-accent-foreground/80 sm:flex-row">
-          <p data-testid="text-copyright">&copy; 2025 Krishna Harsh Travels. All rights reserved.</p>
+          <p data-testid="text-copyright">&copy; 2025 Booking Shooking. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-accent-foreground" data-testid="link-privacy">
               Privacy Policy
