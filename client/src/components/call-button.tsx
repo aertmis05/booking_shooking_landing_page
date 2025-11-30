@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
 
 export function CallButton() {
-  const phoneNumber = "+919876543210"; // Replace with your phone number
+  const phoneNumber = "+919558243706"; // Replace with your phone number
   const telUrl = `tel:${phoneNumber}`;
 
   return (
