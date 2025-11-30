@@ -27,8 +27,8 @@ export default function Home() {
       {/* <TravelPackages /> */}
       
       <AboutUs />
-      {/* <BlogSection /> */}
       <Testimonials />
+      {/* <BlogSection /> */}
       <ContactSupport />
       {/* <ConsultationForm /> */}
       <Footer/>
