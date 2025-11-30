@@ -22,7 +22,7 @@ export function Navbar() {
       className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-md"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="fex h-16 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0 }}
