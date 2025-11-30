@@ -1,55 +1,78 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
-import parisImage from "@assets/generated_images/paris_eiffel_tower_sunset.png";
-import japanImage from "@assets/generated_images/japan_temple_cherry_blossoms.png";
-import swissImage from "@assets/generated_images/swiss_alps_mountain_scenery.png";
-import dubaiImage from "@assets/generated_images/dubai_skyline_night_view.png";
-import baliImage from "@assets/generated_images/bali_rice_terraces_sunrise.png";
-import santoriniImage from "@assets/generated_images/santorini_greece_sunset_view.png";
+import dubaiImage from "/palace/Dubai .jpg";
+import baliImage from "/palace/Bali 1.jpg";
+import goaImage from "/palace/Goa.jpg";
+import himachalImage from "/palace/Himachal Pradesh.jpg";
+import keralaImage from "/palace/Kerala.jpg";
+import malaysiaImage from "/palace/Malaysia.jpg";
+import meghalayaImage from "/palace/Megalaya.jpg";
+import rajasthanImage from "/palace/Rajasthan it.jpg";
+import thailandImage from "/palace/Thailand.jpg";
+import vietnamImage from "/palace/Vietnam.jpg";
+import kashmirImage from "/palace/kashmir.jpg";
+import singaporeImage from "/palace/singapore.jpg";
 
 const destinations = [
   {
-    name: "Paris, France",
-    image: parisImage,
-    rating: 4.9,
-    reviews: 2847,
-    description: "The city of love and lights awaits with iconic landmarks and charming boulevards",
-  },
-  {
-    name: "Kyoto, Japan",
-    image: japanImage,
-    rating: 4.8,
-    reviews: 1923,
-    description: "Experience ancient temples, traditional culture, and stunning cherry blossoms",
-  },
-  {
-    name: "Swiss Alps, Switzerland",
-    image: swissImage,
-    rating: 4.9,
-    reviews: 1654,
-    description: "Majestic mountains, pristine lakes, and charming alpine villages",
-  },
-  {
-    name: "Dubai, UAE",
+    name: "Dubai",
     image: dubaiImage,
-    rating: 4.7,
-    reviews: 2134,
     description: "Modern luxury meets Arabian heritage in this futuristic desert oasis",
   },
   {
-    name: "Bali, Indonesia",
+    name: "Bali",
     image: baliImage,
-    rating: 4.8,
-    reviews: 3241,
     description: "Tropical paradise with lush rice terraces, pristine beaches, and spiritual temples",
   },
   {
-    name: "Santorini, Greece",
-    image: santoriniImage,
-    rating: 4.9,
-    reviews: 2567,
-    description: "Stunning sunsets, white-washed buildings, and crystal blue waters",
+    name: "Thailand",
+    image: thailandImage,
+    description: "Exotic beaches, vibrant culture, and delicious cuisine await in this Southeast Asian gem",
+  },
+  {
+    name: "Kerala",
+    image: keralaImage,
+    description: "Went for ‘peace’ came back with 500 pics of water and one accidental spiritual awakening.Backwaters be like: ‘Sit. Heal. Cry pretty.",
+  },
+  {
+    name: "Himachal Pradesh",
+    image: himachalImage,
+    description: "Plan: 2-day trip.Reality: Adopted by a local dog, applied for mountain citizenship.Happiness unlocked: chai + view combo.",
+  },
+  {
+    name: "Rajasthan",
+    image: rajasthanImage,
+    description: "You think you’re dramatic?These forts exist just to out-drama you.Warning: You will start walking like royalty.",
+  },
+  {
+    name: "Meghalaya",
+    image: meghalayaImage,
+    description: "It rains emotions here. Waterfalls attacking you with beauty.You’ll suddenly believe in nature more than humans.",
+  },
+  {
+    name: "Goa",
+    image: goaImage,
+    description: "Starts with: beach sunsets Ends with: WHO TOOK MY SLIPPERS?No regrets. Only memories you can’t explain to parents",
+  },
+  {
+    name: "Singapore",
+    image: singaporeImage,
+    description: "Everything shiny. Everything expensive.Even the merlion statue is like: ‘Bro, dress better.’But damn… worth every penny of trauma.",
+  },
+  {
+    name: "Malaysia",
+    image: malaysiaImage,
+    description: "One minute city skyscrapers, next minute deep jungle.Like if Netflix made a travel experience.",
+  },
+  {
+    name: "Vietnam",
+    image: vietnamImage,
+    description: "Cross the road like your life is a stunt show. Photo cures trauma. Halong Bay cures existence.",
+  },
+  {
+    name: "Kashmir",
+    image: kashmirImage,
+    description: "Views so beautiful your ex’s toxicity gets erased.You will cry because of the cold & the scenery. Both.",
   },
 ];
 
@@ -65,7 +88,7 @@ export function PopularDestinations() {
           className="mb-16 text-center"
         >
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
-            Popular Destinations
+           OUR BESTSELLING DESTINATIONS
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Discover the world's most breathtaking locations curated by our travel experts
@@ -94,21 +117,6 @@ export function PopularDestinations() {
                     <h3 className="mb-2 text-xl font-bold text-white md:text-2xl" data-testid={`text-destination-name-${index}`}>
                       {destination.name}
                     </h3>
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-4 w-4 ${
-                            i < Math.floor(destination.rating)
-                              ? "fill-accent text-accent"
-                              : "fill-gray-300 text-gray-300"
-                          }`}
-                        />
-                      ))}
-                      <span className="ml-2 text-sm text-white" data-testid={`text-rating-${index}`}>
-                        {destination.rating} ({destination.reviews} reviews)
-                      </span>
-                    </div>
                   </div>
                 </div>
                 <CardContent className="p-6">

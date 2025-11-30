@@ -62,13 +62,14 @@ export function AboutUs() {
               Our Story
             </h3>
             <p className="mb-4 text-muted-foreground">
-              Founded with a simple vision: to transform how people experience the world. What started as a small team of passionate travel enthusiasts has grown into a leading travel agency, known for crafting personalized journeys that create lifelong memories.
+              Booking Shooking started with one realisation people don’t just want a trip; they want a memory that feels like theirs. A moment that belongs to them.
+What began as a passion for planning meaningful, stress-free holidays has grown into a boutique travel brand trusted by travellers who value honesty, comfort, and personalised experiences.
             </p>
             <p className="mb-4 text-muted-foreground">
-              We believe that travel is more than just visiting places—it's about connecting with cultures, discovering yourself, and creating stories worth sharing. Every trip we plan is a testament to our commitment to excellence and customer satisfaction.
+              For us, travel isn’t about ticking off places. It’s about the way a sunrise feels in a new city, the joy of discovering hidden cafés, the peace of waking up in a beautiful room, and the thrill of exploring somewhere you’ve never been.
             </p>
             <p className="text-muted-foreground">
-              Today, with a team of 50+ travel experts and partnerships with premium hotels, airlines, and local guides worldwide, we continue to redefine luxury travel and personalized experiences.
+              From our first few trips to designing hundreds of experiences worldwide, one thing has remained the same, we treat every traveller like family, and every trip like a story we’re proud to help write.
             </p>
           </motion.div>
 
@@ -85,13 +86,17 @@ export function AboutUs() {
                 <div>
                   <h4 className="mb-2 font-semibold text-foreground">Our Mission</h4>
                   <p className="text-sm text-muted-foreground">
-                    To inspire wanderlust and create unforgettable travel experiences by combining expert knowledge, personalized service, and innovative solutions.
+                    To help people travel without stress.
+We want you to enjoy the fun parts the excitement, the experiences, the memories while we take care of the research, the options, the bookings, and the tiny details in between.solutions.
                   </p>
                 </div>
                 <div>
                   <h4 className="mb-2 font-semibold text-foreground">Our Vision</h4>
                   <p className="text-sm text-muted-foreground">
-                    To be the world's most trusted travel partner, known for transforming dreams into reality and exceeding expectations at every step.
+                  We want to be the travel partner people trust not just for prices or itineraries, but for comfort, clarity, and genuine care.
+A company you feel safe messaging at any hour.
+A team you rely on when things change last-minute.
+A friend who always knows the right place to stay.
                   </p>
                 </div>
                 <div>
@@ -99,15 +104,24 @@ export function AboutUs() {
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                      Integrity in every interaction
+                     Honesty First
+Clear guidance, transparent pricing, no drama.
+
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                      Excellence in service delivery
+                     Personal Touch
+Every trip is crafted with care and attention.
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />
-                      Innovation in travel solutions
+                      <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />                     
+Good Vibes Only
+Smooth planning, zero stress, happy memories
+                    </li>
+                     <li className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent" />                     
+Meaningful Moments
+Experiences over checklists, always.
                     </li>
                   </ul>
                 </div>
@@ -116,55 +130,10 @@ export function AboutUs() {
           </motion.div>
         </div>
 
-        {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <h3 className="mb-12 text-center text-2xl font-bold text-foreground md:text-3xl">
-            By The Numbers
-          </h3>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="hover-elevate active-elevate-2">
-                  <CardContent className="p-6 text-center">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                      className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-md bg-primary/10 text-primary"
-                    >
-                      <stat.icon className="h-7 w-7" />
-                    </motion.div>
-                    <h4 className="mb-1 text-3xl font-bold text-foreground">
-                      {stat.value}
-                    </h4>
-                    <p className="mb-2 font-semibold text-foreground">
-                      {stat.label}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {stat.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
 
         {/* Why Choose Us */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -217,7 +186,7 @@ export function AboutUs() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

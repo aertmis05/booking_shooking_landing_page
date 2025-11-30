@@ -6,8 +6,7 @@ import { Menu, X, LogIn } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "#" },
   { label: "Destinations", href: "#destinations" },
-  { label: "Packages", href: "#packages" },
-  { label: "How It Works", href: "#how-it-works" },
+  { label: "Trips we offer", href: "#trip-types" },
   { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
@@ -23,8 +22,8 @@ export function Navbar() {
       className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur-md"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
+        <div className="fex h-16 items-center justify-between">
+          {/* Logo */}b nm
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -58,15 +57,6 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden items-center gap-3 md:flex">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
-              data-testid="button-nav-login"
-            >
-              <LogIn className="mr-2 h-4 w-4" />
-              Login
-            </Button>
             <a href="#consultation">
               <Button
                 size="sm"

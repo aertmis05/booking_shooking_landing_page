@@ -1,30 +1,41 @@
 import { motion } from "framer-motion";
-import { Users, Sparkles, Shield, Headphones } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef } from "react";
 
 const features = [
   {
-    icon: Users,
-    title: "VISA Application",
-    description: "Our certified travel experts have over 15 years of experience creating unforgettable journeys worldwide.",
+    title: "Tourist VISA Application",
+    image: "/services/Visa application .jpg",
+    description: "Professional visa application assistance with expert guidance and documentation support.",
   },
   {
-    icon: Sparkles,
-    title: "Airport Transit VISA",
-    description: "Every itinerary is uniquely crafted to match your preferences, budget, and travel style perfectly.",
+    title: "Transit Visa",
+    image: "/services/Transit visa.jpg",
+    description: "Hassle-free transit visa arrangements for smooth connections during your journey.",
   },
   {
-    icon: Shield,
-    title: "Tour packages",
-    description: "We ensure competitive pricing and transparent costs with no hidden fees or surprise charges.",
+    title: "Tour Packages",
+    image: "/services/Tour packages.jpg",
+    description: "Curated tour packages with exclusive experiences and guided sightseeing.",
   },
   {
-    icon: Headphones,
-    title: "Travel Insurance",
-    description: "Round-the-clock assistance before, during, and after your trip for complete peace of mind.",
+    title: "Flight Booking",
+    image: "/services/Flight booking.jpg",
+    description: "Best flight deals with convenient schedules and comfortable travel options.",
   },
 ];
 
 export function WhyChooseUs() {
+  const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
+
   return (
     <section className="bg-muted/30 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,33 +54,49 @@ export function WhyChooseUs() {
           </p>
         </motion.div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center"
-            >
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-md bg-primary text-primary-foreground"
-              >
-                <feature.icon className="h-8 w-8" />
-              </motion.div>
-              <h3 className="mb-3 text-xl font-semibold text-foreground" data-testid={`text-feature-title-${index}`}>
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground" data-testid={`text-feature-desc-${index}`}>
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+        <div className="relative">
+          <Carousel
+            className="w-full"
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[plugin.current]}
+          >
+            <CarouselContent>
+              {features.map((feature, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="group h-full overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2">
+                      <div className="relative h-[400px] overflow-hidden">
+                        <img
+                          src={feature.image}
+                          alt={feature.title}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                        <div className="absolute bottom-4 left-4 right-4">
+                          <h3 className="text-2xl font-bold text-white mb-2">
+                            {feature.title}
+                          </h3>
+                          <p className="text-white/90 text-sm leading-relaxed">
+                            {feature.description}
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </div>
     </section>

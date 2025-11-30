@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import { Instagram, Linkedin, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 
 const footerLinks = {
@@ -30,19 +30,21 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold" data-testid="text-footer-brand">Booking Shooking</h3>
             <p className="text-sm text-accent-foreground/80" data-testid="text-footer-tagline">
-              Your trusted partner in creating extraordinary travel experiences around the world.
+            Booking Shooking makes travel simple, personal, and stress-free, just the way holidays should feel.
             </p>
             <div className="flex gap-4">
               <a
                 href="#"
                 className="hover-elevate flex h-10 w-10 items-center justify-center rounded-md border border-accent-border bg-accent-foreground/10"
-                aria-label="Facebook"
-                data-testid="link-facebook"
+                aria-label="WhatsApp"
+                data-testid="link-whatsapp"
               >
-                <Facebook className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/booking.shooking?igsh=MWZ1N3loa3ZtNGozZQ=="
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover-elevate flex h-10 w-10 items-center justify-center rounded-md border border-accent-border bg-accent-foreground/10"
                 aria-label="Instagram"
                 data-testid="link-instagram"
@@ -50,12 +52,14 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/booking-shooking/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover-elevate flex h-10 w-10 items-center justify-center rounded-md border border-accent-border bg-accent-foreground/10"
-                aria-label="Twitter"
-                data-testid="link-twitter"
+                aria-label="LinkedIn"
+                data-testid="link-linkedin"
               >
-                <Twitter className="h-5 w-5" />
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -89,12 +93,6 @@ export function Footer() {
           <div>
             <h4 className="mb-4 font-semibold" data-testid="text-footer-contact-heading">Contact</h4>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0" data-testid="icon-address" />
-                <span className="text-accent-foreground/80" data-testid="text-address">
-                  123 Travel Street, Mumbai, India 400001
-                </span>
-              </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0" data-testid="icon-phone" />
                 <span className="text-accent-foreground/80" data-testid="text-phone">+91 9558243706</span>
@@ -112,14 +110,32 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-4 text-sm text-accent-foreground/80 sm:flex-row">
           <p data-testid="text-copyright">&copy; 2025 Booking Shooking. All rights reserved.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-accent-foreground" data-testid="link-privacy">
+            <a 
+              href="/Privacy policy..pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent-foreground" 
+              data-testid="link-privacy"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-accent-foreground" data-testid="link-terms">
+            <a 
+              href="/Terms and conditions .pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent-foreground" 
+              data-testid="link-terms"
+            >
               Terms of Service
             </a>
-            <a href="#" className="hover:text-accent-foreground" data-testid="link-cookies">
-              Cookie Policy
+            <a 
+              href="/Cancellation and refund policy.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent-foreground" 
+              data-testid="link-cancellation"
+            >
+             Cancellation and refund policy
             </a>
           </div>
         </div>

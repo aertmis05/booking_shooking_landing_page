@@ -20,15 +20,17 @@ import {
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, Phone, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle, Send, Calendar, Users } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
   phone: z.string().min(10, "Phone number must be at least 10 digits"),
-  subject: z.string().min(5, "Subject must be at least 5 characters"),
+  destination: z.string().min(2, "Destination must be at least 2 characters"),
+  date: z.string().min(1, "Please select a date"),
+  numberOfPeople: z.string().min(1, "Please select number of people"),
+  tripType: z.string().min(1, "Please select a trip type"),
   message: z.string().min(10, "Message must be at least 10 characters"),
-  category: z.string().min(1, "Please select a category"),
 });
 
 type ContactFormData = z.infer<typeof contactSchema>;
@@ -40,15 +42,44 @@ export function ContactSupport() {
       name: "",
       email: "",
       phone: "",
-      subject: "",
+      destination: "",
+      date: "",
+      numberOfPeople: "",
+      tripType: "",
       message: "",
-      category: "",
     },
   });
 
   const onSubmit = (data: ContactFormData) => {
     console.log("Contact form submitted:", data);
-    // Handle form submission
+    
+    // Format the message with all form details
+    const message = `*New Travel Inquiry - Booking Shooking*
+
+*Name:* ${data.name}
+*Email:* ${data.email}
+*Phone:* ${data.phone}
+*Destination:* ${data.destination}
+*Travel Date:* ${data.date}
+*Number of People:* ${data.numberOfPeople}
+*Trip Type:* ${data.tripType}
+
+*Message:*
+${data.message}
+
+---
+*Submitted via website contact form*`;
+
+    // Create WhatsApp URL
+    const phoneNumber = "919558243706"; // Your phone number with country code
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    
+    // Optional: Show success message or reset form
+    alert("Thank you for your inquiry! We've opened WhatsApp with your details. Please send the message to connect with us.");
+    form.reset();
   };
 
   return (
@@ -69,67 +100,6 @@ export function ContactSupport() {
             Have questions? We're here to help. Reach out to us through any of these channels.
           </p>
         </motion.div>
-
-        {/* Contact Methods */}
-        <div className="mb-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {[
-            {
-              icon: Phone,
-              title: "Phone",
-              details: "+91 98765 43210",
-              description: "Call us anytime",
-            },
-            {
-              icon: Mail,
-              title: "Email",
-              details: "hello@krishnaharshtravels.com",
-              description: "We'll respond within 24 hours",
-            },
-            {
-              icon: MapPin,
-              title: "Office",
-              details: "123 Travel Street, Mumbai, India",
-              description: "Visit us in person",
-            },
-            {
-              icon: Clock,
-              title: "Hours",
-              details: "9 AM - 9 PM IST",
-              description: "Monday to Sunday",
-            },
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Card className="hover-elevate active-elevate-2 text-center">
-                <CardContent className="p-6">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-                    className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-md bg-primary/10 text-primary"
-                  >
-                    <item.icon className="h-6 w-6" />
-                  </motion.div>
-                  <h3 className="mb-2 font-semibold text-foreground">
-                    {item.title}
-                  </h3>
-                  <p className="mb-1 text-sm font-medium text-foreground">
-                    {item.details}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
 
         {/* Contact Form & Map */}
         <div className="grid gap-12 lg:grid-cols-2">
@@ -208,61 +178,106 @@ export function ContactSupport() {
                       />
                     </div>
 
-                    <FormField
-                      control={form.control}
-                      name="category"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Category</FormLabel>
-                          <Select
-                            onValueChange={field.onChange}
-                            defaultValue={field.value}
-                          >
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="destination"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Destination</FormLabel>
                             <FormControl>
-                              <SelectTrigger data-testid="select-contact-category">
-                                <SelectValue placeholder="Select a category" />
-                              </SelectTrigger>
+                              <Input
+                                placeholder="Where do you want to go?"
+                                data-testid="input-contact-destination"
+                                {...field}
+                              />
                             </FormControl>
-                            <SelectContent>
-                              <SelectItem value="general">
-                                General Inquiry
-                              </SelectItem>
-                              <SelectItem value="booking">
-                                Booking Support
-                              </SelectItem>
-                              <SelectItem value="complaint">
-                                Complaint
-                              </SelectItem>
-                              <SelectItem value="feedback">
-                                Feedback
-                              </SelectItem>
-                              <SelectItem value="partnership">
-                                Partnership
-                              </SelectItem>
-                            </SelectContent>
-                          </Select>
-                          <FormMessage data-testid="error-contact-category" />
-                        </FormItem>
-                      )}
-                    />
+                            <FormMessage data-testid="error-contact-destination" />
+                          </FormItem>
+                        )}
+                      />
 
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Subject</FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="What is this about?"
-                              data-testid="input-contact-subject"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormMessage data-testid="error-contact-subject" />
-                        </FormItem>
-                      )}
-                    />
+                      <FormField
+                        control={form.control}
+                        name="date"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Travel Date</FormLabel>
+                            <FormControl>
+                              <Input
+                                type="date"
+                                data-testid="input-contact-date"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage data-testid="error-contact-date" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <FormField
+                        control={form.control}
+                        name="numberOfPeople"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Number of People</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger data-testid="select-contact-people">
+                                  <SelectValue placeholder="Select number of people" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="1">1 Person</SelectItem>
+                                <SelectItem value="2">2 People</SelectItem>
+                                <SelectItem value="3">3 People</SelectItem>
+                                <SelectItem value="4">4 People</SelectItem>
+                                <SelectItem value="5">5 People</SelectItem>
+                                <SelectItem value="6">6 People</SelectItem>
+                                <SelectItem value="7+">7+ People</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage data-testid="error-contact-people" />
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="tripType"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Trip Type</FormLabel>
+                            <Select
+                              onValueChange={field.onChange}
+                              defaultValue={field.value}
+                            >
+                              <FormControl>
+                                <SelectTrigger data-testid="select-contact-trip-type">
+                                  <SelectValue placeholder="Select trip type" />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="honeymoon">Honeymoon</SelectItem>
+                                <SelectItem value="family">Family</SelectItem>
+                                <SelectItem value="solo">Solo</SelectItem>
+                                <SelectItem value="group">Group</SelectItem>
+                                <SelectItem value="friends">Friends</SelectItem>
+                                <SelectItem value="luxurious">Luxurious</SelectItem>
+                                <SelectItem value="budget">Budget</SelectItem>
+                                <SelectItem value="work">Work/Business</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage data-testid="error-contact-trip-type" />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
 
                     <FormField
                       control={form.control}

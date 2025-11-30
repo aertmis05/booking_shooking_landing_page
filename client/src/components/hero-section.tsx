@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin, Calendar } from "lucide-react";
-import heroImage from "@assets/generated_images/luxury_maldives_beach_aerial.png";
+import heroBackground from "../../../attached_assets/generated_images/background_2.jpeg.jpeg";
 
 export function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(${heroBackground})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
       </div>
@@ -36,7 +36,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-10 text-lg text-white/90 md:text-xl lg:text-2xl"
           >
-            Personalized trips crafted by expert travel designers
+            The Wall Of Epic Journey and Memories 
           </motion.p>
 
           <motion.div
@@ -46,13 +46,7 @@ export function HeroSection() {
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <a href="#consultation">
-              <Button
-                size="lg"
-                className="min-h-12 bg-primary text-primary-foreground backdrop-blur-sm hover:bg-primary/90"
-                data-testid="button-book-consultation"
-              >
-                Book Free Consultation
-              </Button>
+          
             </a>
             <a href="#destinations">
               <Button
