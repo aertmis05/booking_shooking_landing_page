@@ -9,10 +9,18 @@ const footerLinks = {
     { label: "Press", href: "#" },
   ],
   destinations: [
-    { label: "Asia", href: "#" },
-    { label: "Europe", href: "#" },
-    { label: "Africa", href: "#" },
-    { label: "Americas", href: "#" },
+    { label: "Dubai", href: "#" },
+    { label: "Bali", href: "#" },
+    { label: "Thailand", href: "#" },
+    { label: "Kerala", href: "#" },
+    { label: "Himachal Pradesh", href: "#" },
+    { label: "Rajasthan", href: "#" },
+    { label: "Meghalaya", href: "#" },
+    { label: "Goa", href: "#" },
+    { label: "Singapore", href: "#" },
+    { label: "Malaysia", href: "#" },
+    { label: "Vietnam", href: "#" },
+    { label: "Kashmir", href: "#" },
   ],
   support: [
     { label: "Contact Us", href: "#" },
@@ -24,15 +32,20 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-accent text-accent-foreground">
+    <footer className="bg-[#DADDD8] text-accent-foreground">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold" data-testid="text-footer-brand">Booking Shooking</h3>
-            <p className="text-sm text-accent-foreground/80" data-testid="text-footer-tagline">
-            Booking Shooking makes travel simple, personal, and stress-free, just the way holidays should feel.
+          <div>
+            <img
+              src="/logo/logo.png"
+              alt="Booking Shooking Logo"
+              className="h-40 w-40 object-contain"
+              data-testid="img-footer-brand"
+            />
+            <p className="text-sm text-accent-foreground/80 -mt-4" data-testid="text-footer-tagline">
+              Booking Shooking makes travel simple, personal, and stress-free, just the way holidays should feel.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mt-4">
               <a
                 href="#"
                 className="hover-elevate flex h-10 w-10 items-center justify-center rounded-md border border-accent-border bg-accent-foreground/10"

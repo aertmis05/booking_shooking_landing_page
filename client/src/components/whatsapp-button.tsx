@@ -16,16 +16,16 @@ export function WhatsAppButton() {
       transition={{ delay: 0.5, duration: 0.3 }}
       whileHover={{ scale: 1.15, rotate: [0, -5, 5, 0] }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition-all hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-lg transition-all hover:bg-green-600 hover:shadow-2xl hover:shadow-green-500/50"
       data-testid="button-whatsapp"
       aria-label="Chat on WhatsApp"
     >
       <motion.div
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 2, repeat: Infinity }}
-        className="absolute h-14 w-14 rounded-full border-2 border-green-500 opacity-0"
+        className="absolute h-12 w-12 sm:h-14 sm:w-14 rounded-full border-2 border-green-500 opacity-0"
       />
-      <MessageCircle className="h-7 w-7 transition-transform duration-300" />
+      <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7 transition-transform duration-300" />
     </motion.a>
   );
 }

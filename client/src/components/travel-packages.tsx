@@ -10,14 +10,12 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Clock, Users, MapPin } from "lucide-react";
-import beachResortImage from "@assets/generated_images/luxury_beach_resort_pool.png";
-import mountainAdventureImage from "@assets/generated_images/mountain_hiking_adventure_scene.png";
-import culturalTourImage from "@assets/generated_images/european_cultural_city_tour.png";
+// Using existing public assets; Vite serves from /client/public
 
 const packages = [
   {
     title: "Tropical Paradise Escape",
-    image: beachResortImage,
+    image: "/palace/Bali 1.jpg",
     price: "$3,299",
     duration: "7 Days, 6 Nights",
     groupSize: "2-6 People",
@@ -31,7 +29,7 @@ const packages = [
   },
   {
     title: "Alpine Adventure Experience",
-    image: mountainAdventureImage,
+    image: "/palace/Himachal Pradesh.jpg",
     price: "$2,899",
     duration: "5 Days, 4 Nights",
     groupSize: "4-8 People",
@@ -45,7 +43,7 @@ const packages = [
   },
   {
     title: "European Cultural Journey",
-    image: culturalTourImage,
+    image: "/services/Customized trip planning.jpg",
     price: "$4,599",
     duration: "10 Days, 9 Nights",
     groupSize: "2-10 People",
@@ -94,6 +92,7 @@ export function TravelPackages() {
                       <img
                         src={pkg.image}
                         alt={pkg.title}
+                        loading="lazy"
                         className="h-full w-full object-cover"
                         data-testid={`img-package-${index}`}
                       />

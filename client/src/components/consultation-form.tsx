@@ -19,7 +19,15 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertConsultationSchema, type InsertConsultation } from "@shared/schema";
+import { z } from "zod";
+const insertConsultationSchema = z.object({
+  name: z.string().min(2),
+  email: z.string().email(),
+  phone: z.string().min(10),
+  destination: z.string().min(2),
+  travelDates: z.string().min(1),
+});
+type InsertConsultation = z.infer<typeof insertConsultationSchema>;
 import { MapPin, Calendar, Phone, Mail, User, Check } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest, queryClient } from "@/lib/queryClient";

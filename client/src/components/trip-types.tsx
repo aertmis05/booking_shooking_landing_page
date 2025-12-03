@@ -113,6 +113,7 @@ export function TripTypes() {
                       <img
                         src={tripType.image}
                         alt={tripType.name}
+                        loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

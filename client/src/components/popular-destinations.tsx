@@ -78,24 +78,24 @@ const destinations = [
 
 export function PopularDestinations() {
   return (
-    <section className="bg-muted/30 py-16 md:py-24" id="destinations">
+    <section className="bg-muted/30 py-12 sm:py-16 md:py-20 lg:py-24" id="destinations">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-8 sm:mb-12 md:mb-16 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold text-foreground md:text-4xl lg:text-5xl">
+          <h2 className="mb-4 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
            OUR BESTSELLING DESTINATIONS
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
             Discover the world's most breathtaking locations curated by our travel experts
           </p>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {destinations.map((destination, index) => (
             <motion.div
               key={index}
@@ -105,22 +105,23 @@ export function PopularDestinations() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Card className="group overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2" data-testid={`card-destination-${index}`}>
-                <div className="relative h-64 overflow-hidden rounded-t-md">
+                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-md">
                   <img
                     src={destination.image}
                     alt={destination.name}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     data-testid={`img-destination-${index}`}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="mb-2 text-xl font-bold text-white md:text-2xl" data-testid={`text-destination-name-${index}`}>
+                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                    <h3 className="mb-2 text-lg font-bold text-white sm:text-xl md:text-2xl" data-testid={`text-destination-name-${index}`}>
                       {destination.name}
                     </h3>
                   </div>
                 </div>
-                <CardContent className="p-6">
-                  <p className="text-muted-foreground" data-testid={`text-description-${index}`}>
+                <CardContent className="p-4 sm:p-6">
+                  <p className="text-sm text-muted-foreground sm:text-base line-clamp-3" data-testid={`text-description-${index}`}>
                     {destination.description}
                   </p>
                 </CardContent>
