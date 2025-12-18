@@ -1,5 +1,8 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLocation } from "wouter";
 import dubaiImage from "/palace/Dubai .jpg";
 import baliImage from "/palace/Bali 1.jpg";
 import goaImage from "/palace/Goa.jpg";
@@ -77,6 +80,25 @@ const destinations = [
 ];
 
 export function PopularDestinations() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [, setLocation] = useLocation();
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % destinations.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + destinations.length) % destinations.length);
+  };
+
+  const handleDestinationClick = (destinationName: string) => {
+    // For now, only Dubai has an itinerary page
+    if (destinationName.toLowerCase() === "dubai") {
+      setLocation("/dubai-itinerary");
+    }
+    // Other destinations can be added later
+  };
+
   return (
     <section className="bg-muted/30 py-12 sm:py-16 md:py-20 lg:py-24" id="destinations">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -95,7 +117,79 @@ export function PopularDestinations() {
           </p>
         </motion.div>
 
-        <div className="grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {/* Mobile Carousel - Only visible on small screens */}
+        <div className="block sm:hidden">
+          <div className="relative">
+            {/* Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-30 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors"
+              aria-label="Previous destination"
+            >
+              <ChevronLeft className="h-5 w-5 text-gray-800" />
+            </button>
+            
+            <button
+              onClick={nextSlide}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors"
+              aria-label="Next destination"
+            >
+              <ChevronRight className="h-5 w-5 text-gray-800" />
+            </button>
+
+            {/* Carousel Container */}
+            <div className="relative overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Card 
+                    className="group overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2 cursor-pointer"
+                    onClick={() => handleDestinationClick(destinations[currentIndex].name)}
+                  >
+                    <div className="relative h-64 sm:h-56 md:h-64 overflow-hidden rounded-t-md">
+                      <img
+                        src={destinations[currentIndex].image}
+                        alt={destinations[currentIndex].name}
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
+                        <h3 className="mb-2 text-xl font-bold text-white sm:text-xl md:text-2xl">
+                          {destinations[currentIndex].name}
+                        </h3>
+                      </div>
+                    </div>
+                    <CardContent className="p-4 sm:p-6">
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Dots Indicator */}
+            <div className="flex justify-center gap-2 mt-6">
+              {destinations.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+                  }`}
+                  aria-label={`Go to destination ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Grid Layout - Hidden on small screens, visible on sm and up */}
+        <div className="hidden sm:grid gap-4 sm:gap-6 md:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {destinations.map((destination, index) => (
             <motion.div
               key={index}
@@ -104,7 +198,11 @@ export function PopularDestinations() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="group overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2" data-testid={`card-destination-${index}`}>
+              <Card 
+                className="group overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2 cursor-pointer" 
+                data-testid={`card-destination-${index}`}
+                onClick={() => handleDestinationClick(destination.name)}
+              >
                 <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-md">
                   <img
                     src={destination.image}
@@ -121,9 +219,6 @@ export function PopularDestinations() {
                   </div>
                 </div>
                 <CardContent className="p-4 sm:p-6">
-                  <p className="text-sm text-muted-foreground sm:text-base line-clamp-3" data-testid={`text-description-${index}`}>
-                    {destination.description}
-                  </p>
                 </CardContent>
               </Card>
             </motion.div>

@@ -62,7 +62,7 @@ export function AboutUs() {
               Our Story
             </h3>
             <p className="mb-4 text-muted-foreground">
-              Booking Shooking started with one realisation people don’t just want a trip; they want a memory that feels like theirs. A moment that belongs to them.
+              Booking Shooking started with one realisation people don’t just want a trip they want a memory that feels like theirs. A moment that belongs to them.
 What began as a passion for planning meaningful, stress-free holidays has grown into a boutique travel brand trusted by travellers who value honesty, comfort, and personalised experiences.
             </p>
             <p className="mb-4 text-muted-foreground">
@@ -87,7 +87,7 @@ What began as a passion for planning meaningful, stress-free holidays has grown 
                   <h4 className="mb-2 font-semibold text-foreground">Our Mission</h4>
                   <p className="text-sm text-muted-foreground">
                     To help people travel without stress.
-We want you to enjoy the fun parts the excitement, the experiences, the memories while we take care of the research, the options, the bookings, and the tiny details in between.solutions.
+We want you to enjoy the fun parts the excitement, the experiences, the memories while we take care of the research, the options, the bookings, and the tiny details in between solutions.
                   </p>
                 </div>
                 <div>

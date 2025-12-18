@@ -12,6 +12,7 @@ const testimonials = [
   { name: "The Sharma Family", image: "/testimonial/The_Patel_family.png" },
   { name: "Sarah and Mike", image: "/testimonial/Dr_Chaitanya%20soni.png" },
   { name: "The Wilsons", image: "/testimonial/baburajfamily.png" },
+  { name: "Shyam Rupapara", image: "/testimonial/shyam_rupapara.png" },
 ];
 
 export function Testimonials() {

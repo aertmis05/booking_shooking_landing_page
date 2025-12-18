@@ -31,6 +31,11 @@ const features = [
     image: "/services/Flight booking.jpg",
     description: "Best flight deals with convenient schedules and comfortable travel options.",
   },
+   {
+    title: "Hotel Booking",
+    image: "/services/Flight booking.jpg",
+    description: "Best rooms deals with convenient schedules and comfortable travel options.",
+  },
 ];
 
 export function WhyChooseUs() {

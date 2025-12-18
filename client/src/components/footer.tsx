@@ -77,7 +77,7 @@ export function Footer() {
             </div>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="mb-4 font-semibold" data-testid="text-footer-company-heading">Company</h4>
             <ul className="space-y-2 text-sm">
               {footerLinks.company.map((link) => (
@@ -88,7 +88,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
 
           <div>
             <h4 className="mb-4 font-semibold" data-testid="text-footer-destinations-heading">Destinations</h4>
