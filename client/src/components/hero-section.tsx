@@ -3,12 +3,22 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin, Calendar } from "lucide-react";
 import heroBackground from "../../../attached_assets/generated_images/background_2.jpeg.jpeg";
+import mobileHeroBackground from "../../../attached_assets/generated_images/background_image_for_mobile.png";
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen w-full overflow-hidden sm:h-screen md:h-screen lg:h-screen">
+      {/* Mobile Background */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat md:hidden"
+        style={{ backgroundImage: `url(${mobileHeroBackground})` }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+      </div>
+
+      {/* Desktop Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat hidden md:block"
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />

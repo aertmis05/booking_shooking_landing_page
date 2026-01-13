@@ -1,80 +1,80 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useLocation } from "wouter";
-import dubaiImage from "/palace/Dubai .jpg";
-import baliImage from "/palace/Bali 1.jpg";
-import goaImage from "/palace/Goa.jpg";
-import himachalImage from "/palace/Himachal Pradesh.jpg";
-import keralaImage from "/palace/Kerala.jpg";
-import malaysiaImage from "/palace/Malaysia.jpg";
-import meghalayaImage from "/palace/Megalaya.jpg";
-import rajasthanImage from "/palace/Rajasthan it.jpg";
-import thailandImage from "/palace/Thailand.jpg";
-import vietnamImage from "/palace/Vietnam.jpg";
-import kashmirImage from "/palace/kashmir.jpg";
-import singaporeImage from "/palace/singapore.jpg";
+import { DestinationCard } from "@/components/destination-card";
+import DubaiImage from "/palace/Dubai .jpg";
+import BaliImage from "/palace/Bali 1.jpg";
+import GoaImage from "/palace/Goa.jpg";
+import HimachalImage from "/palace/Himachal Pradesh.jpg";
+import KeralaImage from "/palace/Kerala.jpg";
+import MalaysiaImage from "/palace/Malaysia.jpg";
+import MeghalayaImage from "/palace/Megalaya.jpg";
+import RajasthanImage from "/palace/Rajasthan it.jpg";
+import ThailandImage from "/palace/Thailand.jpg";
+import VietnamImage from "/palace/Vietnam.jpg";
+import KashmirImage from "/palace/kashmir.jpg";
+import SingaporeImage from "/palace/singapore.jpg";
 
 const destinations = [
   {
     name: "Dubai",
-    image: dubaiImage,
+    image: DubaiImage,
     description: "Modern luxury meets Arabian heritage in this futuristic desert oasis",
   },
   {
     name: "Bali",
-    image: baliImage,
+    image: BaliImage,
     description: "Tropical paradise with lush rice terraces, pristine beaches, and spiritual temples",
   },
   {
     name: "Thailand",
-    image: thailandImage,
+    image: ThailandImage,
     description: "Exotic beaches, vibrant culture, and delicious cuisine await in this Southeast Asian gem",
   },
   {
     name: "Kerala",
-    image: keralaImage,
+    image: KeralaImage,
     description: "Went for ‘peace’ came back with 500 pics of water and one accidental spiritual awakening.Backwaters be like: ‘Sit. Heal. Cry pretty.",
   },
   {
     name: "Himachal Pradesh",
-    image: himachalImage,
+    image: HimachalImage,
     description: "Plan: 2-day trip.Reality: Adopted by a local dog, applied for mountain citizenship.Happiness unlocked: chai + view combo.",
   },
   {
     name: "Rajasthan",
-    image: rajasthanImage,
+    image: RajasthanImage,
     description: "You think you’re dramatic?These forts exist just to out-drama you.Warning: You will start walking like royalty.",
   },
   {
     name: "Meghalaya",
-    image: meghalayaImage,
+    image: MeghalayaImage,
     description: "It rains emotions here. Waterfalls attacking you with beauty.You’ll suddenly believe in nature more than humans.",
   },
   {
     name: "Goa",
-    image: goaImage,
+    image: GoaImage,
     description: "Starts with: beach sunsets Ends with: WHO TOOK MY SLIPPERS?No regrets. Only memories you can’t explain to parents",
   },
   {
     name: "Singapore",
-    image: singaporeImage,
+    image: SingaporeImage,
     description: "Everything shiny. Everything expensive.Even the merlion statue is like: ‘Bro, dress better.’But damn… worth every penny of trauma.",
   },
   {
     name: "Malaysia",
-    image: malaysiaImage,
+    image: MalaysiaImage,
     description: "One minute city skyscrapers, next minute deep jungle.Like if Netflix made a travel experience.",
   },
   {
     name: "Vietnam",
-    image: vietnamImage,
+    image: VietnamImage,
     description: "Cross the road like your life is a stunt show. Photo cures trauma. Halong Bay cures existence.",
   },
   {
     name: "Kashmir",
-    image: kashmirImage,
+    image: KashmirImage,
     description: "Views so beautiful your ex’s toxicity gets erased.You will cry because of the cold & the scenery. Both.",
   },
 ];
@@ -110,7 +110,7 @@ export function PopularDestinations() {
           className="mb-8 sm:mb-12 md:mb-16 text-center"
         >
           <h2 className="mb-4 text-2xl font-bold text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
-           OUR BESTSELLING DESTINATIONS
+            OUR BESTSELLING DESTINATIONS
           </h2>
           <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
             Discover the world's most breathtaking locations curated by our travel experts
@@ -128,7 +128,7 @@ export function PopularDestinations() {
             >
               <ChevronLeft className="h-5 w-5 text-gray-800" />
             </button>
-            
+
             <button
               onClick={nextSlide}
               className="absolute right-2 top-1/2 -translate-y-1/2 z-30 bg-white/80 backdrop-blur-sm rounded-full p-2 shadow-lg hover:bg-white transition-colors"
@@ -138,7 +138,7 @@ export function PopularDestinations() {
             </button>
 
             {/* Carousel Container */}
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden px-1">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentIndex}
@@ -147,27 +147,13 @@ export function PopularDestinations() {
                   exit={{ opacity: 0, x: -100 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Card 
-                    className="group overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2 cursor-pointer"
+                  <DestinationCard
+                    name={destinations[currentIndex].name}
+                    image={destinations[currentIndex].image}
+                    description={destinations[currentIndex].description}
+                    index={currentIndex}
                     onClick={() => handleDestinationClick(destinations[currentIndex].name)}
-                  >
-                    <div className="relative h-64 sm:h-56 md:h-64 overflow-hidden rounded-t-md">
-                      <img
-                        src={destinations[currentIndex].image}
-                        alt={destinations[currentIndex].name}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
-                        <h3 className="mb-2 text-xl font-bold text-white sm:text-xl md:text-2xl">
-                          {destinations[currentIndex].name}
-                        </h3>
-                      </div>
-                    </div>
-                    <CardContent className="p-4 sm:p-6">
-                    </CardContent>
-                  </Card>
+                  />
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -178,9 +164,8 @@ export function PopularDestinations() {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+                    }`}
                   aria-label={`Go to destination ${index + 1}`}
                 />
               ))}
@@ -198,29 +183,13 @@ export function PopularDestinations() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card 
-                className="group overflow-visible transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover-elevate active-elevate-2 cursor-pointer" 
-                data-testid={`card-destination-${index}`}
+              <DestinationCard
+                name={destination.name}
+                image={destination.image}
+                description={destination.description}
+                index={index}
                 onClick={() => handleDestinationClick(destination.name)}
-              >
-                <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden rounded-t-md">
-                  <img
-                    src={destination.image}
-                    alt={destination.name}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    data-testid={`img-destination-${index}`}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4">
-                    <h3 className="mb-2 text-lg font-bold text-white sm:text-xl md:text-2xl" data-testid={`text-destination-name-${index}`}>
-                      {destination.name}
-                    </h3>
-                  </div>
-                </div>
-                <CardContent className="p-4 sm:p-6">
-                </CardContent>
-              </Card>
+              />
             </motion.div>
           ))}
         </div>

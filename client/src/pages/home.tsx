@@ -1,19 +1,13 @@
 import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/components/navbar";
-import { HowItWorks } from "@/components/how-it-works";
 import { PopularDestinations } from "@/components/popular-destinations";
 import { TripTypes } from "@/components/trip-types";
-import { TravelPackages } from "@/components/travel-packages";
 import { WhyChooseUs } from "@/components/why-choose-us";
 import { Testimonials } from "@/components/testimonials";
 import { AboutUs } from "@/components/about-us";
-import { BlogSection } from "@/components/blog-section";
 import { ContactSupport } from "@/components/contact-support";
-import { ConsultationForm } from "@/components/consultation-form";
 import { Footer } from "@/components/footer";
-import { WhatsAppButton } from "@/components/whatsapp-button";
-import { InstagramButton } from "@/components/instagram-button";
-import { CallButton } from "@/components/call-button";
+import { FloatingActionGroup } from "@/components/floating-action-group";
 
 export default function Home() {
   return (
@@ -25,16 +19,14 @@ export default function Home() {
       <PopularDestinations />
       <TripTypes />
       {/* <TravelPackages /> */}
-      
+
       <AboutUs />
       <Testimonials />
       {/* <BlogSection /> */}
       <ContactSupport />
       {/* <ConsultationForm /> */}
-      <Footer/>
-      <WhatsAppButton />
-      <InstagramButton />
-      <CallButton />
+      <Footer />
+      <FloatingActionGroup />
     </div>
   );
 }
