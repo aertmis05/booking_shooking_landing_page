@@ -24,7 +24,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen h-full flex-col items-center justify-center px-4 py-12 text-center sm:px-6 md:px-8 lg:px-12">
+      <div className="relative z-10 flex min-h-screen h-full flex-col items-center justify-center px-4 py-12 pt-[40vh] md:pt-12 text-center sm:px-6 md:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
