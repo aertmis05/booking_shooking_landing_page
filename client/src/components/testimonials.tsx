@@ -3,16 +3,16 @@ import { useState, useMemo } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
-  { name: "The Patel Family", image: "/testimonial/The_Patel_family.png" },
-  { name: "Dr. Chaitanya Soni", image: "/testimonial/Dr_Chaitanya%20soni.png" },
-  { name: "Baburaj Family", image: "/testimonial/baburajfamily.png" },
-  { name: "John and Priya", image: "/testimonial/John_and_Priya.png" },
-  { name: "Manan and Kirna", image: "/testimonial/Manan_and_kirna.png" },
-  { name: "Parvin Patel", image: "/testimonial/Parvin_patel.png" },
-  { name: "The Sharma Family", image: "/testimonial/The_Patel_family.png" },
-  { name: "Sarah and Mike", image: "/testimonial/Dr_Chaitanya%20soni.png" },
-  { name: "The Wilsons", image: "/testimonial/baburajfamily.png" },
-  { name: "Shyam Rupapara", image: "/testimonial/shyam_rupapara.png" },
+  { name: "The Patel Family", image: "/testimonial/The_Patel_family.webp" },
+  { name: "Dr. Chaitanya Soni", image: "/testimonial/Dr_Chaitanya%20soni.webp" },
+  { name: "Baburaj Family", image: "/testimonial/baburajfamily.webp" },
+  { name: "John and Priya", image: "/testimonial/John_and_Priya.webp" },
+  { name: "Manan and Kirna", image: "/testimonial/Manan_and_kirna.webp" },
+  { name: "Parvin Patel", image: "/testimonial/Parvin_patel.webp" },
+  { name: "The Sharma Family", image: "/testimonial/The_Patel_family.webp" },
+  { name: "Sarah and Mike", image: "/testimonial/Dr_Chaitanya%20soni.webp" },
+  { name: "The Wilsons", image: "/testimonial/baburajfamily.webp" },
+  { name: "Shyam Rupapara", image: "/testimonial/shyam_rupapara.webp" },
 ];
 
 export function Testimonials() {
@@ -29,29 +29,29 @@ export function Testimonials() {
   const getVisibleItems = () => {
     const items = [];
     const total = testimonials.length;
-    
+
     // Responsive: Show fewer items on smaller screens
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
     const isTablet = typeof window !== 'undefined' && window.innerWidth >= 768 && window.innerWidth < 1024;
-    
+
     if (isMobile) {
       // Mobile: Show 3 items (left, center, right)
       const index1 = (currentIndex - 1 + total) % total;
       const index2 = currentIndex;
       const index3 = (currentIndex + 1) % total;
-      
+
       items.push({
         testimonial: testimonials[index1],
         position: 'left',
         index: index1
       });
-      
+
       items.push({
         testimonial: testimonials[index2],
         position: 'center',
         index: index2
       });
-      
+
       items.push({
         testimonial: testimonials[index3],
         position: 'right',
@@ -63,25 +63,25 @@ export function Testimonials() {
       const index2 = currentIndex;
       const index3 = (currentIndex + 1) % total;
       const index4 = (currentIndex + 2) % total;
-      
+
       items.push({
         testimonial: testimonials[index1],
         position: 'left',
         index: index1
       });
-      
+
       items.push({
         testimonial: testimonials[index2],
         position: 'center-left',
         index: index2
       });
-      
+
       items.push({
         testimonial: testimonials[index3],
         position: 'center-right',
         index: index3
       });
-      
+
       items.push({
         testimonial: testimonials[index4],
         position: 'right',
@@ -94,38 +94,38 @@ export function Testimonials() {
       const index3 = currentIndex;
       const index4 = (currentIndex + 1) % total;
       const index5 = (currentIndex + 2) % total;
-      
+
       items.push({
         testimonial: testimonials[index1],
         position: 'far-left',
         index: index1
       });
-      
+
       items.push({
         testimonial: testimonials[index2],
         position: 'left',
         index: index2
       });
-      
+
       items.push({
         testimonial: testimonials[index3],
         position: 'center',
         index: index3
       });
-      
+
       items.push({
         testimonial: testimonials[index4],
         position: 'right',
         index: index4
       });
-      
+
       items.push({
         testimonial: testimonials[index5],
         position: 'far-right',
         index: index5
       });
     }
-    
+
     return items;
   };
 
@@ -157,7 +157,7 @@ export function Testimonials() {
           >
             <ChevronLeft className="h-6 w-6 text-gray-800" />
           </button>
-          
+
           <button
             onClick={nextSlide}
             className="absolute right-0 md:right-8 z-30 bg-white/80 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-colors"
@@ -177,12 +177,12 @@ export function Testimonials() {
                 const isFarRight = item.position === 'far-right';
                 const isCenterLeft = item.position === 'center-left';
                 const isCenterRight = item.position === 'center-right';
-                
+
                 // Responsive positioning and sizing
                 const getResponsiveValues = () => {
                   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
                   const isTablet = typeof window !== 'undefined' && window.innerWidth >= 768 && window.innerWidth < 1024;
-                  
+
                   if (isMobile) {
                     // Mobile values
                     return {
@@ -218,14 +218,14 @@ export function Testimonials() {
                     };
                   }
                 };
-                
+
                 const responsive = getResponsiveValues();
-                
+
                 return (
                   <motion.div
                     key={`${item.index}-${item.position}`}
-                    initial={{ 
-                      opacity: 0, 
+                    initial={{
+                      opacity: 0,
                       scale: 0.7,
                       x: responsive.initialX
                     }}
@@ -235,14 +235,14 @@ export function Testimonials() {
                       x: responsive.x,
                       zIndex: responsive.zIndex,
                     }}
-                    exit={{ 
+                    exit={{
                       opacity: 0,
                       scale: 0.7,
                       x: responsive.initialX,
                       transition: { duration: 0.3 }
                     }}
-                    transition={{ 
-                      duration: 0.6, 
+                    transition={{
+                      duration: 0.6,
                       ease: [0.25, 0.46, 0.45, 0.94] // Custom easing curve
                     }}
                     className="absolute"
@@ -258,7 +258,7 @@ export function Testimonials() {
                         loading="lazy"
                         className="w-full h-full object-cover"
                       />
-                      
+
                       {/* Overlay with testimonial info */}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 md:p-6">
                         <h3 className="text-white font-semibold text-lg md:text-xl mb-2">
@@ -281,9 +281,8 @@ export function Testimonials() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
+                className={`w-2 h-2 rounded-full transition-colors ${index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'
+                  }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
             ))}

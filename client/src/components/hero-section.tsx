@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin, Calendar } from "lucide-react";
-import heroBackground from "../../../attached_assets/generated_images/background_2.jpeg.jpeg";
-import mobileHeroBackground from "../../../attached_assets/generated_images/background_image_for_mobile.png";
+import heroBackground from "../../../attached_assets/generated_images/hero-desktop-optimized.webp";
+import mobileHeroBackground from "../../../attached_assets/generated_images/hero-mobile-optimized.webp";
 
 export function HeroSection() {
   return (

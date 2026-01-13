@@ -30,10 +30,10 @@ export function Navbar() {
             transition={{ delay: 0.2 }}
             className="flex items-center"
           >
-            <img 
-              src="/logo/logo.png" 
-              alt="Booking Shooking Logo" 
-              className="h-40 w-52 object-contain max-h-full"
+            <img
+              src="/logo/logo.png"
+              alt="Booking Shooking Logo"
+              className="h-20 w-auto sm:h-40 sm:w-52 object-contain max-h-full"
             />
           </motion.div>
 
